@@ -1,0 +1,11 @@
+export { HospitalRepository } from './hospital.repository';
+export { HealthRepository } from './health.repository';
+export { UserRepository } from './user.repository';
+export { PatientRepository } from './patient.repository';
+export { DoctorRepository } from './doctor.repository';
+export { AppointmentRepository } from './appointment.repository';
+export { PrescriptionRepository } from './prescription.repository';
+export { BillingRepository } from './billing.repository';
+export { AuditLogRepository } from './auditLog.repository';
+export { DocumentRepository } from './document.repository';
+export { SaaSBillingRepository } from './saasBilling.repository';
