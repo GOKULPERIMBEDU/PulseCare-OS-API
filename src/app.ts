@@ -27,6 +27,10 @@ export function createApp() {
     }),
   );
 
+  app.get('/', (_req, res) => {
+    res.status(200).send('PulseCare OS API is awake and running!');
+  });
+
   app.use('/api', apiRouter);
 
   app.use(notFoundHandler);
