@@ -2,9 +2,9 @@ import cors from 'cors';
 import express from 'express';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
-import { env } from './config/env';
 import { errorHandler, notFoundHandler } from './middleware/errorHandler';
 import { apiRouter } from './routes';
+import { corsOrigin } from './utils/corsOrigin';
 
 export function createApp() {
   const app = express();
@@ -12,7 +12,7 @@ export function createApp() {
   app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
   app.use(
     cors({
-      origin: env.clientOrigin,
+      origin: corsOrigin,
       credentials: true,
     }),
   );

@@ -1,7 +1,7 @@
 import { Server as HttpServer } from 'http';
 import { Server } from 'socket.io';
-import { env } from '../config/env';
 import { verifyToken } from '../utils/token';
+import { corsOrigin } from '../utils/corsOrigin';
 import { hospitalQueueRoom, setSocketServer } from './emitter';
 import { AppointmentService } from '../services/appointment.service';
 import { todayDateString } from '../utils/helpers';
@@ -12,8 +12,9 @@ const appointmentService = new AppointmentService();
 export function initializeSockets(httpServer: HttpServer): Server {
   const io = new Server(httpServer, {
     cors: {
-      origin: env.clientOrigin,
+      origin: corsOrigin,
       methods: ['GET', 'POST'],
+      credentials: true,
     },
   });
 
